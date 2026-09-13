@@ -1,0 +1,23 @@
+name: Portfolio publish staging
+
+on:
+  push:
+    branches:
+      - portfolio-redesign-publish
+
+permissions:
+  contents: write
+
+jobs:
+  verify-write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify workflow write access
+        run: |
+          printf 'ok\n' > .portfolio-publish-write-ok
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .portfolio-publish-write-ok
+          git commit -m "Verify portfolio publish workflow write access"
+          git push
