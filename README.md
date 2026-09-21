@@ -13,13 +13,13 @@ python3 scripts/build.py
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`. Edit project content in `scripts/content.py`, layout in `scripts/build.py`, styling in `assets/style.css`, and interactions in `assets/site.js`. Rebuild and commit generated HTML and SVG files with the sources. GitHub Pages serves the committed files using the existing publishing configuration.
+Open `http://localhost:8000`. Edit project content in `scripts/content.py`, layout in `scripts/build.py`, styling in `assets/style.css`, and interactions in `assets/site.js`. Rebuild and commit generated HTML files with the sources. GitHub Pages serves the committed files using the existing publishing configuration.
 
 ## Behavior
 
 - Content, navigation, case studies, and source links work without JavaScript.
-- JavaScript adds combined category and technology filtering, result announcements, motion controls, and click-to-load YouTube players.
-- The eight-second hero loop is muted, respects reduced-motion preferences, pauses out of view, and has a manual pause control. A still image remains available when playback fails.
+- JavaScript adds combined category and technology filtering, result announcements and click-to-load YouTube players.
+- The opening feature shows Fish Fish from its running WebGL build, with direct links to the case study and playable game.
 - No frontend framework, external font, analytics, or backend service is required.
 
 ## Evidence and attribution
@@ -30,16 +30,12 @@ The PrimeEngine entry links to a public milestone outline, rather than engine so
 
 Education dates were checked against supplied transcripts: USC M.S., December 2025; Tennessee Tech B.S., December 2023, Cum Laude. Private transcripts are not included in this repository.
 
-## Visual assets
+## Visual evidence
 
-`assets/systems-sculpture.webp` is the optimized artwork made with the built-in GPT Image tool. `assets/systems-loop.mp4` is an eight-second camera-motion loop rendered from that still with FFmpeg, not a generative-video output. The hero is decorative. Project SVG illustrations are labeled concept sketches; they are not application screenshots or measured results.
+The hero and game cards use captures from the actual Fish Fish and Magnet Bomber WebGL builds and the running Zap Python game. The AI workflow image is the original submitted `Q2-graph.png` from `usc-works`. No game screen or interface has been invented or painted over.
 
-Generation prompt:
+Projects without application captures display excerpts from their public source files. The PrimeEngine card quotes its public milestone outline, because engine source and screenshots are not available in that repository. Code excerpts are text, not screenshots of a fabricated application.
 
-> Use case: stylized-concept. Asset type: right-side hero artwork for Brian Lee's software engineering portfolio, also source image for a subtle looping camera animation. Create a premium editorial 3D still life, square composition: one beautifully machined sculptural assembly of interlocking graphite-black rounded rectangular arches, a satin aluminum ring, and a single vivid burnt-orange sphere suspended within the assembly. Physical model of connected systems; abstract, elegant, precise, tactile surfaces with subtle brushed-metal texture. On a warm pale ivory seamless studio floor and backdrop (#efeee7), soft directional daylight from upper left, rich realistic contact shadows. Centered composition with generous empty margins around all objects, entire sculpture visible. Architectural product photography aesthetic, restrained and striking, no sci-fi glow. No text, no logos, no watermark, no people, no computers, no schematic or factual diagram. Output square high resolution.
+`assets/evidence/manifest.json` records each visual's caption, original source URL, and excerpt line numbers where relevant. Source excerpts retain their original content with common indentation removed; compact cards show only the first seven lines. Case studies show the longer excerpt and link to the original. Game capture URLs identify the exact build commit. The image files are local, so viewing the portfolio does not require third-party image requests.
 
-Recreate the motion loop:
-
-```sh
-ffmpeg -loop 1 -i assets/systems-sculpture.webp -vf "scale=1600:1600,zoompan=z='1.02+0.02*(1-cos(2*PI*on/192))':x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':d=192:s=720x720:fps=24" -frames:v 192 -c:v libx264 -crf 25 -pix_fmt yuv420p -movflags +faststart -an assets/systems-loop.mp4
-```
+To update a visual, replace its file in `assets/evidence/`, update the manifest attribution, run `python3 scripts/build.py`, and commit the source and generated pages together. The former sculpture, motion loop, and project concept SVGs have been removed.
