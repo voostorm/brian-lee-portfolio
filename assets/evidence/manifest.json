@@ -1,0 +1,100 @@
+{
+  "demand-response": {
+    "kind": "code",
+    "label": "Organization update endpoint",
+    "filename": "adminpage.py",
+    "language": "Python",
+    "start": 59,
+    "text": "@adminpage.route(\"/mod-org-name\", methods=['PUT'])\ndef modOrgName(): # button to mod an org name\n    # ajax request to get unique org_id and its org_name and new org_name\n    data = request.json\n    intOrgNum = data.get('intOrgNum')\n    strNewOrgName = data.get('strNewOrgName')\n    strCurrOrgName = data.get('strCurrOrgName')\n\n    # Connect to the database\n    try:\n        conn = connect_db()\n        # Update the database if organization name is changed\n        with conn.cursor() as cursor:\n            if len(strNewOrgName) > 0 and strNewOrgName != strCurrOrgName:\n                cursor.execute('UPDATE organizations SET org_name = %s where org_id = %s', (strNewOrgName, intOrgNum))\n                conn.commit()",
+    "source": "https://github.com/voostorm/ttu-works/blob/739bd26214234fa03a8f3d60461b6b19beac9c94/Projects/team/Software%20Engineering/drp/src/web/app/routes/api/admin/adminpage.py#L59-L74"
+  },
+  "web-crawler": {
+    "kind": "code",
+    "label": "Shared queue & thread safety",
+    "filename": "crawler.py",
+    "language": "Python",
+    "start": 31,
+    "text": "# queue for URLs to be crawled\nself.url_queue = queue.Queue()\n\n# set to keep track of visited URLs\nself.visited_urls = set()\n\n# lock for thread-safe operations\nself.lock = threading.Lock()",
+    "source": "https://github.com/voostorm/usc-works/blob/395d046e06e459bc0c794d70f70242c38e1bc03a/CSCI%20572%20-%20Information%20Retrieval%20and%20Web%20Search%20Engines/web-crawling/web-crawling-submission/crawler.py#L31-L38"
+  },
+  "schedule-dashboard": {
+    "kind": "code",
+    "label": "Faculty lookup endpoint",
+    "filename": "ServiceBridge.java",
+    "language": "Java",
+    "start": 91,
+    "text": "@GetMapping(\"/coursesbyfaculty\")\npublic ArrayList<CourseInstance> coursesbyfaculty(\n        @RequestParam(value = \"subject\", defaultValue = \"CSC\") String subject,\n        @RequestParam(value = \"term\", defaultValue = \"202210\") String term,\n        @RequestParam(value = \"lastname\", defaultValue = \"Gannod\") String lastname,\n        @RequestParam(value = \"firstname\", defaultValue = \"Gerald C\") String firstname\n) {\n\n    CourseInstance[] courses = this.courses(subject, term);\n\n    ArrayList<CourseInstance> list = new ArrayList<>();",
+    "source": "https://github.com/voostorm/ttu-works/blob/739bd26214234fa03a8f3d60461b6b19beac9c94/Projects/individual/Object-Oriented%20Programming%20%26%20Design/Iteration%202/IT_2_turned-in_completed/wlee44-dashboard_2/src/main/java/edu/tntech/csc2310/dashboard/ServiceBridge.java#L91-L101"
+  },
+  "go-agent": {
+    "kind": "code",
+    "label": "Iterative deepening search",
+    "filename": "stage2_my_player3.py",
+    "language": "Python",
+    "start": 25,
+    "text": "for depth in range(1, self.max_depth + 1):\n    if time.time() - self.start_time > self.time_limit:\n        break\n    score, move = self.alphabeta(go, depth, float('-inf'), float('inf'), True, piece_type)\n    if time.time() - self.start_time > self.time_limit:\n        break\n    if move is not None:\n        best_move = move",
+    "source": "https://github.com/voostorm/usc-works/blob/395d046e06e459bc0c794d70f70242c38e1bc03a/CSCI%20561%20-%20Foundations%20of%20Artificial%20Intelligence/GO/solutions/stage2_my_player3.py#L25-L32"
+  },
+  "linux-tools": {
+    "kind": "code",
+    "label": "Network helper menu",
+    "filename": "nethelper lab 06.sh",
+    "language": "Bash",
+    "start": 36,
+    "text": "echo \"(P) for ping\"\necho \"(N) for nslookup\"\necho \"(S) for ssh\"\necho \"(H) for hostname\"\necho \"(I) for ifconfig\"\necho \"(Q) for quit\" \nread -p \"Select one of the above: \" cmd \n\ncase $cmd in\n    [Pp]*)\n        pick_host $@\n        echo \"ping -c 1\" \"${hosts_array[$which_host]}\"\n        echo $(ping -c 1 ${hosts_array[$which_host]})",
+    "source": "https://github.com/voostorm/ttu-works/blob/739bd26214234fa03a8f3d60461b6b19beac9c94/Coursework/Intro%20to%20DevOps%20with%20Unix/wlee44_lab06/nethelper%20lab%2006.sh#L36-L48"
+  },
+  "library-database": {
+    "kind": "code",
+    "label": "Book copy query",
+    "filename": "project3.java",
+    "language": "Java",
+    "start": 61,
+    "text": "case \"c\": // (c) Retrieve ISBN, title and barcode of every book copy.\n    PreparedStatement pStmt_c = conn.prepareStatement(\"select ISBN, title, barcode from COPY natural left outer join BOOK order by barcode;\");\n    ResultSet result_c = pStmt_c.executeQuery(); // execute the query\n    System.out.println(\"[retrieved ISBN, title, and barcode of every book copy]\");\n    while (result_c.next()) { // show the result\n        System.out.println(result_c.getString(\"ISBN\") + \" | \"\n                + result_c.getString(\"title\") + \" | \"\n                + result_c.getString(\"barcode\"));\n    }",
+    "source": "https://github.com/voostorm/ttu-works/blob/739bd26214234fa03a8f3d60461b6b19beac9c94/Projects/individual/Database%20Management%20Systems/Project%203/dbms_project3_turn-in_completed/src/project3.java#L61-L69"
+  },
+  "addon-engineering": {
+    "kind": "code",
+    "label": "Saved layout by specialization",
+    "filename": "Reorder.lua",
+    "language": "Lua",
+    "start": 42,
+    "text": "local specKey = tostring(info.spec)\nlocal specOrder = classOrder[specKey]\nif not specOrder then\n    if not create then\n        return\n    end\n    specOrder = {}\n    classOrder[specKey] = specOrder\nend",
+    "source": "https://github.com/voostorm/mop-addons/blob/6297005ed1a03b3a37d956eb439385a4d6fb867d/OmniCD/Modules/Party/Reorder.lua#L42-L50"
+  },
+  "prime-engine": {
+    "kind": "document",
+    "label": "Engine milestone notes",
+    "filename": "outline.md",
+    "text": "Added axis-aligned bounding box (AABB) bounding-volume support and integrated it into a camera view-frustum culling pass to skip rendering objects outside the frustum.",
+    "source": "https://github.com/voostorm/usc-works/blob/395d046e06e459bc0c794d70f70242c38e1bc03a/CSCI%20522%20-%20Game%20Engine%20Development/outline.md"
+  },
+  "rag-workflows": {
+    "kind": "image",
+    "label": "Submitted LangFlow workflow",
+    "image": "rag-workflows.png",
+    "alt": "Brian\u2019s submitted LangFlow graph connecting URL content, text splitting, embeddings, FAISS retrieval and model responses.",
+    "source": "https://github.com/voostorm/usc-works/blob/395d046e06e459bc0c794d70f70242c38e1bc03a/CSCI%20572%20-%20Information%20Retrieval%20and%20Web%20Search%20Engines/LLM%2BRAG/LLM%2BRAG-submission/Q2-graph.png"
+  },
+  "fish-fish": {
+    "kind": "image",
+    "label": "Title screen \u00b7 running WebGL build",
+    "image": "fish-fish.png",
+    "alt": "Fish Fish title screen with the fishing rod, diver, fish, and Start Game button.",
+    "source": "https://github.com/voostorm/fish-fish-playable/tree/662ddd88b40c37f964f3660eeb1116adb92b34e6"
+  },
+  "magnet-bomber": {
+    "kind": "image",
+    "label": "Captured from the running game",
+    "image": "magnet-bomber.png",
+    "alt": "Magnet Bomber captured from its actual running build.",
+    "source": "https://github.com/voostorm/magnet-bomber-playable/tree/285ae62c5c5c71b384a66cd8bb644d069de21fd2"
+  },
+  "zap": {
+    "kind": "image",
+    "label": "Captured from the running game",
+    "image": "zap.png",
+    "alt": "Zap captured from its actual running build.",
+    "source": "https://github.com/voostorm/zap/tree/6e00e398c4c8ba67e5076ba61ddf6eb32d73f370"
+  }
+}
