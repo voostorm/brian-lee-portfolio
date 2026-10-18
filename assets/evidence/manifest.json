@@ -96,5 +96,14 @@
     "image": "zap.png",
     "alt": "Zap captured from its actual running build.",
     "source": "https://github.com/voostorm/zap/tree/6e00e398c4c8ba67e5076ba61ddf6eb32d73f370"
+  },
+  "bbt-usa-tours": {
+    "kind": "image",
+    "label": "Live website \u00b7 Desktop capture",
+    "image": "bbt-usa-tours.jpg",
+    "alt": "BBT USA Tours homepage showing its private tours and airport transfer services and Request a Quote button.",
+    "source": "https://www.bbtusatours.com/",
+    "captured": "2026-10-18",
+    "notes": "Unaltered browser captures of the deployed website, including its existing imagery. Solo authorship supplied by Brian. Stack and functionality observed in public JavaScript/CSS bundles; no backend source or business metrics inferred."
   }
 }
