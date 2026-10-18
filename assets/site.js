@@ -13,7 +13,7 @@ if (cards.length) {
       if (match) count++;
     });
     filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === selected)));
-    document.querySelector('#project-count').textContent = `${count} ${count === 1 ? 'project' : 'projects'} · Academic, personal, and team work`;
+    document.querySelector('#project-count').textContent = `${count} ${count === 1 ? 'project' : 'projects'} · Solo, academic, and team work`;
     document.querySelector('#empty-state').hidden = count !== 0;
   }
   filters.forEach(button => button.addEventListener('click', () => { selected = button.dataset.filter; filterProjects(); }));

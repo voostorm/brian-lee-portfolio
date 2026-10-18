@@ -10,6 +10,14 @@ DRP = 'Projects/team/Software Engineering/drp'
 IR = 'CSCI 572 - Information Retrieval and Web Search Engines'
 
 PROJECTS = [
+ dict(id='bbt-usa-tours', title='BBT USA Tours', category='Backend & web', filters='web', year='Live website', context='Solo development · Business website', project_type='Solo project', stack=['React', 'Tailwind CSS', 'React Router', 'i18next'], visual='website',
+      summary='A bilingual travel-services website that helps visitors explore private tours and airport transfers, then request a tailored quote.',
+      problem='Travelers need to understand destinations, service options, and trip requirements before contacting a private tour operator. BBT USA serves both English- and Korean-speaking customers.',
+      contribution='I developed the website independently, bringing service discovery, destination information, bilingual content, and quote requests into one customer-facing experience.',
+      details=['Built responsive layouts for browsing airport transfers, day tours, multi-day trips, and specialty travel services.', 'Organized destination and transfer pages with itinerary information, service details, pricing, and frequently asked questions.', 'Provided English/Korean language switching using i18next, with React Router navigation between service pages.', 'Integrated a quote-request form with required fields, trip dates, pickup and drop-off locations, passenger and luggage counts, and submission feedback through a hosted form service.'],
+      outcome='A publicly accessible business website that connects service browsing to a structured travel inquiry. Visitors can explore the live site and request a custom quote.',
+      proof=[{'label':'Visit BBT USA Tours','url':'https://www.bbtusatours.com/'}, {'label':'Explore a destination page','url':'https://www.bbtusatours.com/los-angeles'}, {'label':'View the inquiry form','url':'https://www.bbtusatours.com/#contact'}],
+      gallery=[{'image':'bbt-services.jpg','alt':'BBT USA Tours service directory showing airport transfers and destination cards.','caption':'Service discovery · Airport transfers and private day tours','source':'https://www.bbtusatours.com/#services'}, {'image':'bbt-korean-inquiry.jpg','alt':'Korean-language quote-request form on the BBT USA Tours website.','caption':'Bilingual inquiries · Korean-language trip request form','source':'https://www.bbtusatours.com/#contact'}]),
  dict(id='demand-response', title='Demand Response Portal', category='Backend & web', filters='web systems', year='2023', context='Team capstone · Tennessee Tech', stack=['Python', 'Flask', 'MariaDB', 'Docker'], visual='portal',
       summary='An energy-data web platform, with backend APIs for managing organizations, users, and meters.',
       problem='Power consumers and providers need a way to organize meter data and explore energy usage. Our capstone team built a web portal for those workflows.',
